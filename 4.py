@@ -66,5 +66,5 @@ while(train):
         print("w11 : %5.4f w12: %5.4f w21: %5.4f w22: %5.4f w13: %5.4f w23: %5.4f "%(w11,w12,w21,w22,w13,w23))
         print("Error: %5.3f" % abs(del_o1))
         epochs = epochs + 1
-    if(epochs == 1000):
+    if(epochs >= 10):
         train=False

@@ -9,7 +9,7 @@ with open("datasets/1.csv", "r") as csv_file:
     print()
     general = ["?"]*(len(dataset[0]) - 1)
     specific = ["phi"]*(len(dataset[0]) - 1)
-    for row in dataset:
+    for index, row in enumerate(dataset):
         if row[-1] == "TRUE":
             for i in range(len(row) - 1):
                 if specific[i] == row[i]:
@@ -31,8 +31,10 @@ with open("datasets/1.csv", "r") as csv_file:
                     temp_2[i] = specific[i]
                     temp_1.append(temp_2)
             general = temp_1
-        print(specific)
-        print(general)
+        print("Training example %d"%(index + 1))
+        print("S:", specific)
+        print("G:", general)
+        print()
     version_space= []
     for i in range(len(general)):
         for j in range(len(specific)):
@@ -42,6 +44,7 @@ with open("datasets/1.csv", "r") as csv_file:
                 temp_2 = list(general[i])
                 temp_2[j] = specific[j]
                 version_space.append(temp_2)
+    print("The version space is")
     print(version_space)
 
 

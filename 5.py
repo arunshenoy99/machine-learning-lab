@@ -3,7 +3,7 @@ import math
 import random
 import statistics
 
-def gaussian_probability_distibution(x, u, sigma):
+def gaussian_probability_distribution(x, u, sigma):
     exponent = math.exp(-(math.pow(x - u, 2) / (2 * math.pow(sigma, 2))))
     return (1 / (math.sqrt(2 * math.pi) * sigma)) * exponent
 
@@ -52,7 +52,7 @@ for data in test_data:
     for target_class, mean_variance in mean_variances.items():
         probabilities[target_class] = 1
         for index, values in enumerate(mean_variance):
-            probabilities[target_class] *= gaussian_probability_distibution(data[index], values[0], values[1])
+            probabilities[target_class] *= gaussian_probability_distribution(data[index], values[0], values[1])
     best_label, best_prob = None, -1
     for target_class, probability in probabilities.items():
         if best_label is None or probability > best_prob:
