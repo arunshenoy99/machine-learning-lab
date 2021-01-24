@@ -10,7 +10,8 @@ from sklearn.preprocessing import LabelEncoder
 encoder = LabelEncoder()
 #Encode target labels with value between 0 and n_classes-1.
 #print(df.iloc[0])
-for i in range(len(col)):
+#for each row(:) select the ith column
+for i in range(len(col)): # can be 7
     df.iloc[:, i] = encoder.fit_transform(df.iloc[:, i])
 #print(df.iloc[0])
 
@@ -36,6 +37,8 @@ clf.fit(xtrain, ytrain)
 
 predictions = clf.predict(xtest)
 
+print("ytest")
+print(list(ytest))
 print('predictions')
 print(predictions)
 

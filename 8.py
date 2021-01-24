@@ -31,7 +31,7 @@ centroids = kmeans.cluster_centers_
 print('centroids')
 print(centroids)
 
-plt.scatter(X[:, 0], X[:, 0], s = 40, c = labels, cmap='viridis')
+plt.scatter(X[:, 0], X[:, 1], s = 40, c = labels, cmap='viridis')
 print('Grapth using kmeans')
 plt.scatter(centroids[:, 0], centroids[:, 1], marker='*', s=200, c='#050505')
 plt.show()

@@ -9,19 +9,19 @@ x2 = [0, 1, 0, 1]
 t = [0, 1, 1 ,0]
 
 #Hidden layer perceptron 1 
-b1 = -0.3
-w11 = 0.21
-w12 = -0.4
+b1 = -10
+w11 = 20
+w12 = -20
 
 #Hidden layer perceptron 2
-b2=0.25
-w21 = 0.15
-w22 = 0.1
+b2=30
+w21 = 20
+w22 = -20
 
 #Output layer perceptron 1
-b3=-0.4
-w13 = -0.2
-w23=0.3
+b3=-30
+w13 = 20
+w23=20
 
 
 epochs = 0
@@ -79,4 +79,4 @@ out_h2 = round(sigmoid(net_h2), 4)
 net_o1 = b3 + (w13 * out_h1) + (w23 * out_h2)
 out_o1 = round(sigmoid(net_o1), 4)
 
-print ("Predicted:%f"%out_o1)
+print ("Predicted:%f"%round(out_o1))

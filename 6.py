@@ -19,6 +19,7 @@ print(xtest.shape)
 print(ytrain.shape)
 print(ytest.shape)
 
+#Convert a collection of text documents to a matrix of token counts
 from sklearn.feature_extraction.text import CountVectorizer
 count_vect = CountVectorizer()
 xtrain_dtm = count_vect.fit_transform(xtrain)
@@ -32,7 +33,7 @@ from sklearn.naive_bayes import MultinomialNB
 clf = MultinomialNB().fit(xtrain_dtm, ytrain)
 predicted = clf.predict(xtest_dtm)
 print("ytest")
-print(ytest)
+print(list(ytest))
 print("predicted")
 print(predicted)
 
