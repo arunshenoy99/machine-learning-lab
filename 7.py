@@ -20,14 +20,14 @@ y = df.iloc[:, -1]
 from sklearn.model_selection import train_test_split
 xtrain, xtest, ytrain, ytest = train_test_split(X, y, test_size = 0.2)
 
-print('xtrain\n')
-print(xtrain)
-print('xtest\n')
-print(xtest)
-print('ytrain\n')
-print(ytrain)
-print('ytest\n')
-print(ytest)
+print('xtrain')
+print(xtrain.shape)
+print('xtest')
+print(xtest.shape)
+print('ytrain')
+print(ytrain.shape)
+print('ytest')
+print(ytest.shape)
 
 from sklearn.naive_bayes import GaussianNB
 

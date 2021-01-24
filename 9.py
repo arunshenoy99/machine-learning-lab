@@ -6,9 +6,6 @@ iris = load_iris()
 X = iris.data
 y = iris.target
 
-print(X[: 5])
-print(y[: 5])
-
 from sklearn.model_selection import train_test_split
 
 xtrain, xtest, ytrain, ytest = train_test_split(X, y)

@@ -15,7 +15,7 @@ def information_gain(dataset, concept, attr):
     average_information_table = subset.agg({concept : [entropy, lambda x: len(x)/dataset_length] })[concept]
     average_information_table.columns = ["Entropy", "pa+na/p+n"]
     average_information = sum(average_information_table["Entropy"] * average_information_table["pa+na/p+n"])
-    gain = entropy(concept) - average_information
+    gain = entropy(dataset[concept]) - average_information
     return gain
 
 def id3(dataset, concept, decision_attributes):

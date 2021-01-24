@@ -44,13 +44,14 @@ while(train):
 
         #Output layer error calculation
         del_o1 = round((out_o1 * (1 - out_o1) * (t[i] - out_o1)), 4)
-        b3 = round((b3 + del_o1), 4)
-        w13 = round((w13 + (del_o1 * out_h1)), 4)
-        w23 = round(w23 + (del_o1 * out_h2), 4)
 
         #Hidden layer error calculation
         del_h1 = round((out_h1 * (1 - out_h1) * w13 * del_o1), 4)
         del_h2 = round((out_h2 * (1- out_h2) * w23 * del_o1), 4)
+
+        b3 = round((b3 + del_o1), 4)
+        w13 = round((w13 + (del_o1 * out_h1)), 4)
+        w23 = round(w23 + (del_o1 * out_h2), 4)
 
         #Update weights of hidden layer 1
         b1 = round((b1 + del_h1), 4)
@@ -66,5 +67,16 @@ while(train):
         print("w11 : %5.4f w12: %5.4f w21: %5.4f w22: %5.4f w13: %5.4f w23: %5.4f "%(w11,w12,w21,w22,w13,w23))
         print("Error: %5.3f" % abs(del_o1))
         epochs = epochs + 1
-    if(epochs >= 10):
+    if(epochs >= 1000):
         train=False
+    
+net_h1 = b1 + (w11 * 1) + (w21 * 1)
+net_h2 = b2 + (w12 * 1) + (w22 * 1)
+out_h1 = round(sigmoid(net_h1), 4)
+out_h2 = round(sigmoid(net_h2), 4)
+
+#Output layer
+net_o1 = b3 + (w13 * out_h1) + (w23 * out_h2)
+out_o1 = round(sigmoid(net_o1), 4)
+
+print ("Predicted:%f"%out_o1)

@@ -68,4 +68,3 @@ for index, key in enumerate(test_data):
 
 accuracy = (correct/(float(len(test_data)))) * 100
 print("Accuracy: %f"%accuracy)
-    

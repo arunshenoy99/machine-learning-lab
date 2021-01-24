@@ -10,9 +10,6 @@ msg['labelnum'] = msg.label.map({ 'pos': 1, 'neg': 0})
 X = msg.message
 y = msg.labelnum
 
-print(X)
-print()
-print(y)
 
 from sklearn.model_selection import train_test_split
 xtrain, xtest, ytrain, ytest = train_test_split(X, y)
@@ -27,17 +24,7 @@ count_vect = CountVectorizer()
 xtrain_dtm = count_vect.fit_transform(xtrain)
 xtest_dtm = count_vect.transform(xtest)
 
-print("Unique features are")
-print(count_vect.get_feature_names())
-
-print("xtrain matrix")
-print(xtrain_dtm.toarray())
-
-print("ytrain matrix")
-print(xtest_dtm.toarray())
-
 df = pd.DataFrame(xtrain_dtm.toarray(), columns=count_vect.get_feature_names())
-print(df)
 
 #The multinomial Naive Bayes classifier is suitable for classification with discrete features (e.g., word counts for text classification).
 from sklearn.naive_bayes import MultinomialNB
